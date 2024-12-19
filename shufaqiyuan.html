@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>书法起源</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+			background-image: url('img/background.jpg');
+			background-repeat: no-repeat;
+			height: 100vh;
+			background-size: cover;
+			background-attachment: fixed;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-family: Arial, sans-serif;
+		}
+
+		@keyframes fadeIn {
+		    from { /* 动画开始时的状态 */
+		        opacity: 0; /* 元素完全透明 */
+		        transform: translateY(20px); /* 元素沿Y轴向下移动20像素 */
+		    }
+		    to { /* 动画结束时的状态 */
+		        opacity: 1; /* 元素完全不透明 */
+		        transform: translateY(0); /* 元素回到原始位置 */
+		    }
+		}
+
+		.text{
+			padding: 20px; /* 添加内边距 */
+			max-width: 70%;/* 控制最大宽度 */
+			text-align: left;/* 文本居中对齐 */
+			font-size: 4vw;
+			font-family: '楷体';
+			animation-name: fadeIn; /* 指定动画名称 */
+			animation-duration: 2s; /* 设置动画持续时间 */
+			animation-fill-mode: both; /* 动画执行前后保持样式 */
+			text-indent: 2em;
+			line-height: 1.4;
+		}
+	</style>
+</head>
+<body>
+	<div class="text">
+		<p>书法植根于中国传统文化土壤，传统文化是书法赖以生存、发展的背景。我们今天能够看到的汉代以来的书法理论，具有自己的系统性、完整性与条理性。中国书法历史悠久，书体沿革流变，书法艺术异采迷人。</p>
+	</div>
+</body>
+</html>
