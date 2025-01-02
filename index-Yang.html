@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>鉴宝</title>
+    <meta charset="utf-8" />
+	        
+    <style>
+		.backDiv{
+			position: relative;
+			width: 1200px;
+			height: 768px;
+			margin: 0 auto;
+			background-image: url('img/background.jpg');
+		}
+		
+		
+		.question1{
+			position: absolute;
+			left: 15%;
+			top: 40%;
+		}
+		
+		.formPlace{
+			position: absolute;
+			left: 15%;
+			top: 50%;
+		}
+		
+		.message{
+			margin-left: 15px; /* 给提示消息一些左边距 */
+			font-size: 14px; /* 可选：设置字体大小 */
+		}
+		
+	    .artWork1 {
+			position: absolute;
+			left: 80%;
+			top: 3%;
+	        transition: transform 1s ease-in-out; /* 添加过渡效果 */
+	        transform: translateX(-100%); /* 初始位置在视口左侧之外 */
+	       }
+	         
+	    .slide-in {
+	        transform: translateX(0); /* 将图片移动到其正常位置 */
+	    }
+	    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+            $(document).ready(function() {
+                console.log('jQuery is ready!'); // 调试信息
+                $('.artWork1').addClass('slide-in'); // 触发动画
+            });
+	
+	<script>
+	        function handleFormSubmit(event) {
+	            event.preventDefault(); // 阻止表单的实际提交
+	 
+	            var radios = document.getElementsByName('answer');
+	            var correctAnswer = "lishu"; // 假设正确答案是隶书
+	            var messageElement = document.getElementById('message');
+	 
+	            // 重置之前的消息
+	            messageElement.textContent = '';
+	 
+	            for (var i = 0; i < radios.length; i++) {
+	                if (radios[i].checked) {
+	                    if (radios[i].value === correctAnswer) {
+	                        messageElement.textContent = '回答正确';
+	                        messageElement.style.color = 'green'; // 可选：设置消息颜色为绿色
+	                    } else {
+	                        messageElement.textContent = '回答错误';
+	                        messageElement.style.color = 'red'; // 可选：设置消息颜色为红色
+	                    }
+	                    break; // 找到第一个选中的单选按钮后退出循环
+	                }
+	            }
+	 
+	            // 如果没有任何单选按钮被选中，也可以给出提示（可选）
+	            if (!messageElement.textContent) {
+	                messageElement.textContent = '请选择一个选项';
+	                messageElement.style.color = 'black'; // 可选：设置消息颜色为黑色
+	            }
+	        }
+	 
+	        window.onload = function() {
+	            var form = document.querySelector('.formPlace');
+	            form.addEventListener('submit', handleFormSubmit);
+	        };
+	    </script>
+
+  </head>
+  <body>
+	  <div style="width: 1200px; height: 768px;" class="backDiv">
+		<div id="t1">
+			<img src="img/kaishu1.jpg" class="artWork1">
+			
+				<h2 class="question1">这部书法作品的文体是？</h2>
+			<form class="formPlace">	
+				<input type="radio" name="answer" id="1" value="lishu"/>
+				<label for="lishu">楷书</label>
+				<input type="radio" name="answer" id="2" value="kaishu"/>
+				<label for="kaishu">隶书</label>
+				<input type="radio" name="answer" id="3" value="zhuanshu"/>
+				<label for="zhuanshu">篆书</label>
+				<input type="radio" name="answer" id="4" value="caoshu"/>
+				<label for="caoshu">草书</label>
+				<br/>
+				<br/>
+				<span id="message" class="message"></span>
+				<input type="submit" value="提交">
+		  </form>
+		  
+		</div>
+
+	  </div>
+  </body>
+</html>
