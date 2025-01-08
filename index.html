@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>鉴宝</title>
+    <meta charset="utf-8" />
+	        
+    <style>
+		.backDiv{
+			position: relative;
+			width: 1200px;
+			height: 768px;
+			margin: 0 auto;
+			background-image: url('img/background.jpg');
+		}
+		
+		#back{
+			position: absolute;
+			top: 700px;
+			right: 10px;
+		}
+		
+		/* #next{
+			position: absolute;
+			top: 700px;
+			right: 10px;
+		} */
+		
+		.question1{
+			position: absolute;
+			left: 15%;
+			top: 40%;
+		}
+		
+		.formPlace{
+			position: absolute;
+			left: 15%;
+			top: 50%;
+		}
+		
+		.message{
+			margin-left: 15px; 
+			font-size: 14px; 
+		}
+		
+	    .artWork1 {
+			position: absolute;
+			left: 80%;
+			top: 3%;
+	        transition: transform 1s ease-in-out;
+	        transform: translateX(-100%);
+	       }
+	         
+	    .slide-in {
+	        transform: translateX(0);
+	    }
+	    </style>
+            
+	
+	<script>
+	        function handleFormSubmit(event) {
+	            event.preventDefault(); 
+	 
+	            var radios = document.getElementsByName('answer');
+	            var correctAnswer = "lishu"; 
+	            var messageElement = document.getElementById('message');
+	 
+	            // 重置之前的消息
+	            messageElement.textContent = '';
+	 
+	            for (var i = 0; i < radios.length; i++) {
+	                if (radios[i].checked) {
+	                    if (radios[i].value === correctAnswer) {
+	                        messageElement.textContent = '果然是大师！慧眼如炬！';
+	                        messageElement.style.color = 'green'; 
+	                    } else {
+	                        messageElement.textContent = '您还是得再练练';
+	                        messageElement.style.color = 'red';
+	                    }
+	                    break;
+	                }
+	            }
+	 
+	            // 如果没有任何单选按钮被选中
+	            if (!messageElement.textContent) {
+	                messageElement.textContent = '请选择一个选项';
+	                messageElement.style.color = 'black'; // 设置消息颜色为黑色
+	            }
+	        }
+	 
+	        window.onload = function() {
+	            var form = document.querySelector('.formPlace');
+	            form.addEventListener('submit', handleFormSubmit);
+	        };
+	    </script>
+
+  </head>
+  <body>
+	  <div style="width: 1200px; height: 768px;" class="backDiv">
+		<div id="t1">
+			<img src="img/kaishu1.jpg" class="artWork1">
+			
+				<h2 class="question1">这部书法作品的文体是？</h2>
+			<form class="formPlace">	
+				<input type="radio" name="answer" id="1" value="lishu"/>
+				<label for="lishu">楷书</label>
+				<input type="radio" name="answer" id="2" value="kaishu"/>
+				<label for="kaishu">隶书</label>
+				<input type="radio" name="answer" id="3" value="zhuanshu"/>
+				<label for="zhuanshu">篆书</label>
+				<input type="radio" name="answer" id="4" value="caoshu"/>
+				<label for="caoshu">草书</label>
+				<br/>
+				<br/>
+				<span id="message" class="message"></span>
+				<input type="submit" value="提交">
+		  </form>
+		  
+		</div>
+		
+		
+		<a href=""><img src="img/back.png" style="width: 70px;height: 70px;" id="back" /></a>
+
+	  </div>
+  </body>
+</html>
