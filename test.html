@@ -97,7 +97,13 @@
   <body>
 	  <div style="width: 1200px; height: 768px;" class="backDiv">
 		<div id="t1">
-			<img src="img/kaishu1.jpg" class="artWork1">
+			< img src="img/kaishu1.jpg" class="artWork1" id="qq" style="display: none;">
+			<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+			<script>
+				$(document).ready(function() {
+				    $('#qq').fadeIn(1000); 
+				});
+			</script>
 			
 				<h2 class="question1">这部书法作品的文体是？</h2>
 			<form class="formPlace">	
